@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--TODO Main-->
+    <dimen name="textsize_main_adapter_item">6dp</dimen>
+    <dimen name="textpadding_main_adapter_item">12dp</dimen>
+
+    <!--TODO ListAdapter demo-->
+    <dimen name="textpadding_list_demo_header">20dp</dimen>
+    <dimen name="textsize_list_demo_header">8dp</dimen>
+<dimen name="textsize_list_demo_item">18dp</dimen>
+    <dimen name="textpadding_list_demo_item">12dp</dimen>
+    <dimen name="text_size_entry">36dp</dimen>
+    <dimen name="image_size_entry_logo">128dp</dimen>
+    <dimen name="image_size_user_icon">80dp</dimen>
+    <integer name="rcv_animationDurationHide">420</integer>
+    <integer name="rcv_animationDurationReveal">420</integer>
+    <integer name="av_animationDuration">340</integer>
+
+    <!--TODO Material Loading Progress Bar-->
+    <dimen name="activity_loading_progress_horizontal_margin">16dp</dimen>
+    <dimen name="activity_loading_progress_vertical_margin">16dp</dimen>
+    <dimen name="guide_text_size">14sp</dimen>
+
+    <dimen name="textsize_20sp">20sp</dimen>
+    <dimen name="textsize_16sp">16sp</dimen>
+</resources>

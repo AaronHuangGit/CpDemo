@@ -1,0 +1,98 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion rootProject.ext.android.compileSdkVersion
+    buildToolsVersion rootProject.ext.android.buildToolsVersion
+
+    defaultConfig {
+        applicationId rootProject.ext.android.hostApplicationId
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
+        versionCode rootProject.ext.android.versionCode
+        versionName rootProject.ext.android.versionName
+        multiDexEnabled true
+    }
+
+    dexOptions {
+        javaMaxHeapSize "4g"
+        jumboMode = true
+    }
+    signingConfigs {
+        myConfig {
+            storeFile file("dsh.keystore")
+            storePassword "aaron1"
+            keyAlias "aaron"
+            keyPassword "aaron1"
+        }
+        testConfig {
+            storeFile file("test-dsh.keystore")
+            storePassword "aaron123"
+            keyAlias "test-dsh.keystore"
+            keyPassword "aaron123"
+        }
+    }
+    sourceSets {
+        main {
+            manifest.srcFile 'src/main/AndroidManifest.xml'
+            java.srcDirs = ['src/main/java']
+            aidl.srcDirs = ['src/main/java']
+            res.srcDirs = ['src/main/res']
+            assets.srcDirs = ['src/main/assets']
+            jniLibs.srcDirs = ['libs']
+        }
+        debug {
+            manifest.srcFile 'src/debug/AndroidManifest.xml'
+        }
+        androidTest.setRoot('src/androidTest')
+    }
+    buildTypes {
+        release {
+            minifyEnabled true
+            shrinkResources true
+            signingConfig signingConfigs.myConfig
+            proguardFiles 'proguard-rules.pro'
+        }
+        debug {
+            signingConfig signingConfigs.testConfig
+            proguardFiles 'proguard-rules.pro'
+        }
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+
+    packagingOptions {
+        exclude('META-INF/maven/com.squareup.okio/okio/pom.xml')
+        exclude('META-INF/maven/com.squareup.okio/okio/pom.properties')
+    }
+    configurations.all {
+        resolutionStrategy.cacheChangingModulesFor 1, 'minutes'
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+kapt {
+    arguments {
+        arg("AROUTER_MODULE_NAME", project.getName())
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation rootProject.ext.dependencies.anko
+    implementation rootProject.ext.dependencies.ankoSdk25
+    implementation rootProject.ext.dependencies.ankoAppcompatV7
+    implementation rootProject.ext.dependencies.ankoSdk25Coroutines
+    implementation rootProject.ext.dependencies.ankoAppcompatV7Coroutines
+    implementation rootProject.ext.dependencies.eventBus
+    kapt rootProject.ext.dependencies.arouterCompiler
+    implementation project(':common')
+    implementation project(':fresco')
+}

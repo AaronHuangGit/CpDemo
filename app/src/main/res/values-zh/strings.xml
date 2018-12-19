@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="exit_app" tools:ignore="ExtraTranslation">确定退出程序</string>
+    <string name="title_notice" tools:ignore="ExtraTranslation">提示</string>
+</resources>

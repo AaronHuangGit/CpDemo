@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="main_item_title">
+        <item>App Bar Style</item>
+        <item>Fresco</item>
+        <item>Kotlin</item>
+        <item>Kotlin Anko</item>
+        <item>Map</item>
+    </string-array>
+    <string-array name="app_bar_style_item">
+        <item>title01</item>
+        <item>title02</item>
+        <item>title03</item>
+        <item>title04</item>
+        <item>title05</item>
+        <item>title06</item>
+        <item>title07</item>
+        <item>title08</item>
+        <item>title09</item>
+        <item>title10</item>
+        <item>title11</item>
+        <item>title12</item>
+        <item>title13</item>
+        <item>title14</item>
+        <item>title15</item>
+    </string-array>
+</resources>
